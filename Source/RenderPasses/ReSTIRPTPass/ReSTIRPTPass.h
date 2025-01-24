@@ -79,7 +79,7 @@ private:
         uint32_t    maxSurfaceBounces = 9;                      ///< Max number of surface bounces (diffuse + specular + transmission), up to kMaxPathLenth.
         uint32_t    maxDiffuseBounces = -1;                     ///< Max number of diffuse bounces (0 = direct only), up to kMaxBounces. This will be initialized at startup.
         uint32_t    maxSpecularBounces = -1;                    ///< Max number of specular bounces (0 = direct only), up to kMaxBounces. This will be initialized at startup.
-        uint32_t    maxTransmissionBounces = -1;                ///< Max number of transmission bounces (0 = none), up to kMaxBounces. This will be initialized at startup.
+        uint32_t    maxTransmissionBounces = 0;                ///< Max number of transmission bounces (0 = none), up to kMaxBounces. This will be initialized at startup.
         uint32_t    sampleGenerator = SAMPLE_GENERATOR_TINY_UNIFORM; ///< Pseudorandom sample generator type.
         bool        adjustShadingNormals = false;               ///< Adjust shading normals on secondary hits.
         bool        useBSDFSampling = true;                     ///< Use BRDF importance sampling, otherwise cosine-weighted hemisphere sampling.
@@ -115,7 +115,7 @@ private:
         bool            rcDataOfflineMode = false;
 
 		// Denoising parameters
-		bool        useNRDDemodulation = true;                  ///< Global switch for NRD demodulation.
+		bool        useNRDDemodulation = false;                  ///< Global switch for NRD demodulation.
 
         Program::DefineList getDefines(const ReSTIRPTPass& owner) const;
     };

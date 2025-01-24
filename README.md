@@ -36,6 +36,7 @@ See README_Falcor.md for the original README file provided by Falcor.
 ## Test with more scenes
 - You can test your custom scene by running Bin\x64\Release\Mogwai.exe first, then load a scene file.
 - A Falcor pyscene is recommended. For how to create a pyscene, please check out the `Source/RenderPasses/ReSTIRPTPass/Data/VeachAjar/VeachAjar.pyscene` as a template.
+C:\Users\PHYQH\Documents\GitHub\ReSTIR_PT\Source\RenderPasses\ReSTIRPTPass\Data\Bistro\BistroExterior.pyscene
 Details can be found in Falcor's [documentation](Docs/Usage/Scene-Formats.md)
 - Alternatively, if you have a scene file with well defined lighting, material, and camera information that is supported by Falocr (like FBX), you can also create a one-line
 pyscene file, e.g. `sceneBuilder.importScene(YOUR_SCENE_FILE)`.

@@ -97,7 +97,7 @@ protected:
     bool                        mAutoReset = true;              ///< Reset accumulation automatically upon scene changes, refresh flags, and/or subframe count.
     Precision                   mPrecisionMode = Precision::Double;
     uint32_t                    mSubFrameCount = 0;             ///< Number of frames to accumulate before reset. Useful for generating references.
-    uint32_t                    mMaxAccumulatedFrames = 0;      ///< Number of frames to accumulate before weights become constant. Useful for noise comparisons.
+    uint32_t                    mMaxAccumulatedFrames = 100;      ///< Number of frames to accumulate before weights become constant. Useful for noise comparisons.
 
     ResourceFormat              mOutputFormat = ResourceFormat::Unknown;                    ///< Output format (uses default when set to ResourceFormat::Unknown).
     RenderPassHelpers::IOSize   mOutputSizeSelection = RenderPassHelpers::IOSize::Default;  ///< Selected output size.

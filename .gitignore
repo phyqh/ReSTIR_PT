@@ -18,3 +18,10 @@ Media
 Tools/.packman
 Tests/data
 *.tlog
+
+*.hdr
+*.fbx
+*.txt
+*.dds
+*.tga
+/R560-developer

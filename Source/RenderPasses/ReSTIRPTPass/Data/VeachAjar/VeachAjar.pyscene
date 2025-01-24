@@ -1,9 +1,18 @@
 AnimatedVersion = False
 
 camera = Camera()
-camera.position = float3(1.472850, 1.269930, -0.558769)
-camera.target = float3(0.648815, 1.177880, -1.117770)
+#camera.position = float3(2.84124, 1.49616, -0.558769)
+camera.position = float3(3.84927, 1.59616, -2.04124)
+camera.target = float3(
+    camera.position.x - 0.990015,        # x + transformed_forward.x
+    camera.position.y - 0.0322983,        # y + transformed_forward.y
+    camera.position.z - 0.177212        # z + transformed_forward.z
+)
+# camera.target = float3(0.648815, 1.177880, -1.117770)
 camera.up = float3(-0.031992, 0.999478, -0.004434)
+# camera.position = float3(1.472850, 1.269930, -0.558769)
+# camera.target = float3(0.648815, 1.177880, -1.117770)
+# camera.up = float3(-0.031992, 0.999478, -0.004434)
 camera.focalLength = 36.9504
 sceneBuilder.addCamera(camera)
 
@@ -12,6 +21,7 @@ Landscape.loadTexture(MaterialTextureSlot.BaseColor, 'textures/landscape-with-a-
 
 Table = Material('Table')
 Table.loadTexture(MaterialTextureSlot.BaseColor, 'textures/Good Textures_005844.jpg')
+Table.roughness = 1.0
 
 DoorHandle = Material('DoorHandle')
 DoorHandle.baseColor = float4(0.92804748,0.91780447,0.91890865,1)
@@ -20,6 +30,7 @@ DoorHandle.metallic = 1
 
 Door = Material('Door')
 Door.loadTexture(MaterialTextureSlot.BaseColor, 'textures/cherry-wood-texture.jpg')
+Door.roughness = 1.0
 
 Diffuse = Material('Diffuse')
 Diffuse.baseColor = float4(0.8,0.8,0.8,1)
@@ -27,7 +38,7 @@ Diffuse.roughness = 1
 
 Floor = Material('Floor')
 Floor.roughness = 1
-Floor.loadTexture(MaterialTextureSlot.BaseColor, 'textures/checkerboxsmall.png')
+Floor.loadTexture(MaterialTextureSlot.BaseColor, 'textures/Black.png')
 
 DoorFrame = Material('DoorFrame')
 DoorFrame.baseColor = float4(0.247059, 0.168627, 0.0901961, 1)
@@ -42,7 +53,7 @@ Hinge.baseColor = float4(0.92804748,0.91780447,0.91890865,1)
 
 Light = Material('Light')
 Light.baseColor = float4(0,0,0,1)
-Light.emissiveColor = float3(1000,1000,1000)
+Light.emissiveColor = float3(1000, 1000, 1000)
 
 Pot2 = Material('Pot2')
 Pot2.roughness = 0.17
@@ -68,6 +79,7 @@ if AnimatedVersion:
     DoorTransform.translation = float3(-2.79817, 0, -4.67015)
     #DoorTransform.rotationEulerDeg = float3(0, -80 + 16.68,0) # rotating around y axis
 
+# obj = TriangleMesh.createFromFile('models/Light_subdivided_translated_rotated.obj')
 obj = TriangleMesh.createFromFile('models/Light.obj')
 sceneBuilder.addMeshInstance(
     sceneBuilder.addTriangleMesh(obj, Light),
@@ -88,7 +100,7 @@ sceneBuilder.addMeshInstance(
 
 obj = TriangleMesh.createFromFile('models/Mesh011.obj')
 sceneBuilder.addMeshInstance(
-    sceneBuilder.addTriangleMesh(obj, Floor),
+    sceneBuilder.addTriangleMesh(obj, Diffuse),
     sceneBuilder.addNode('Floor', Transform())
 )
 

@@ -1,4 +1,4 @@
-AnimatedVersion = True
+AnimatedVersion = False
 
 camera = Camera()
 camera.position = float3(2.13964, 1.78114, -0.539359)

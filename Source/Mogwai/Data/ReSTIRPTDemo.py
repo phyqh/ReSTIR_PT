@@ -16,7 +16,7 @@ def render_graph_ReSTIRPT():
     g.addPass(ReSTIRGIPlusPass, "ReSTIRPTPass")
     VBufferRT = createPass("VBufferRT", {'samplePattern': SamplePattern.Center, 'sampleCount': 1, 'texLOD': TexLODMode.Mip0, 'useAlphaTest': True})
     g.addPass(VBufferRT, "VBufferRT")
-    AccumulatePass = createPass("AccumulatePass", {'enableAccumulation': False, 'precisionMode': AccumulatePrecision.Double})
+    AccumulatePass = createPass("AccumulatePass", {'enableAccumulation': True, 'precisionMode': AccumulatePrecision.Double})
     g.addPass(AccumulatePass, "AccumulatePass")
     ToneMapper = createPass("ToneMapper", {'autoExposure': False, 'exposureCompensation': 0.0, 'operator': ToneMapOp.Linear})
     g.addPass(ToneMapper, "ToneMapper")
@@ -41,4 +41,6 @@ def render_graph_ReSTIRPT():
 graph_ReSTIRPT = render_graph_ReSTIRPT()
 
 m.addGraph(graph_ReSTIRPT)
-m.loadScene('VeachAjar/VeachAjarAnimated.pyscene')
+m.loadScene('C:/Users/PHYQH/Documents/GitHub/ReSTIR_PT/Source/RenderPasses/ReSTIRPTPass/Data/VeachAjar/VeachAjar.pyscene')
+# m.loadScene('C:/Users/PHYQH/Documents/GitHub/ReSTIR_PT/Source/RenderPasses/ReSTIRPTPass/Data/Bistro/BistroExterior.pyscene')
+# C:/Users/PHYQH/Documents/GitHub/ReSTIR_PT/Source/RenderPasses/ReSTIRPTPass/Data/Bistro/BistroExterior.pyscene
